@@ -1,0 +1,35 @@
+{
+  "name": "slack-api-client",
+  "description": "A Slack API Client",
+  "version": "0.0.1",
+  "author": "Germán Robledo <germanrcuriel@gmail.com>",
+  "main": "./lib/slack.js",
+  "dependencies": {
+    "superagent": "^1.1.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.1",
+    "mocha": "^2.2.1",
+    "should": "^5.2.0",
+    "sinon": "^1.14.1"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "scripts": {
+    "build": "coffee -c -o lib src",
+    "clean": "rm -rf lib",
+    "prepublish": "npm run build",
+    "test": "./node_modules/.bin/mocha"
+  },
+  "keywords": [
+    "slack",
+    "api",
+    "client"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/germanrcuriel/slack-client.git"
+  }
+}
