@@ -28,6 +28,9 @@ $ npm install slack-api-client
 
 ## API and documentation
 
+  - API:
+    - [api.test - Checks API calling code](docs/api.md#apitest---checks-api-calling-code)
+
   - Work in progress. Documentation will be available shortly.
 
 More information at [Slack API Documentation](https://api.slack.com/methods/)
