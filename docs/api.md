@@ -58,5 +58,3 @@ If called with an `error` argument an error response is returned:
 ### Errors:
 
 This method has no expected error responses. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the `ok` params in the response.
-
-===

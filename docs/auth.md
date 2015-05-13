@@ -46,7 +46,7 @@ slack.api.auth.test({
 
 ### Errors:
 
-This table lists the expected errors that this method will return. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the ok params in the response.
+This table lists the expected errors that this method will return. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the `ok` params in the response.
 
 | Error | Description |
 | ----- | ----------- |
