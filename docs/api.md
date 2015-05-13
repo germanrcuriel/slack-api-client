@@ -2,14 +2,14 @@
 
 ## api.test - Checks API calling code
 
-####Arguments:
+#### Arguments:
 
-| Argument | Example    | Required | Description                |
-| -------- | ---------- | -------- | -------------------------- |
+| Argument | Example | Required | Description |
+| -------- | ------- | -------- | ----------- |
 | `error`  | `my_error` | Optional | Error response to return   |
 | `foo`    | `bar`      | Optional | Example property to return |
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -32,7 +32,7 @@ slack.api.api.test({
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -55,7 +55,7 @@ If called with an `error` argument an error response is returned:
 }
 ```
 
-###Errors:
+### Errors:
 
 This method has no expected error responses. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the ok params in the response.
 
