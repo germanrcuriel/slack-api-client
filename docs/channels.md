@@ -65,10 +65,10 @@ This table lists the expected errors that this method will return. However, othe
 
 #### Arguments:
 
-| Argument  | Example               | Required | Description |
-| --------- | --------------------- | -------- | ----------- |
-| `token`   | `xxxx-xxxxxxxxx-xxxx` | Required | Authentication token (Requires scope: `post`) |
-| `name`    | `mychannel`           | Required | Name of channel to create                     |
+| Argument | Example | Required | Description |
+| -------- | ------- | -------- | ----------- |
+| `token` | `xxxx-xxxxxxxxx-xxxx` | Required | Authentication token (Requires scope: `post`) |
+| `name`  | `mychannel`           | Required | Name of channel to create                     |
 
 #### Example:
 
@@ -143,14 +143,14 @@ This table lists the expected errors that this method will return. However, othe
 
 #### Arguments:
 
-| Argument    | Example               | Required              | Description |
-| ----------- | --------------------- | --------------------- | ----------- |
-| `token`     | `xxxx-xxxxxxxxx-xxxx` | Required              | Authentication token (Requires scope: `read`)       |
-| `channel`   | `C1234567890`         | Required              | Channel to fetch history                            |
-| `latest`    | `1234567890.123456`   | Optional, default=now | End of time range of messages to include in results |
-| `oldest`    | `1234567890.123456`   | Optional, default=0   | Start of time range of messages to include in results |
+| Argument | Example | Required | Description |
+| -------- | ------- | -------- | ----------- |
+| `token`     | `xxxx-xxxxxxxxx-xxxx` | Required              | Authentication token (Requires scope: `read`)               |
+| `channel`   | `C1234567890`         | Required              | Channel to fetch history                                    |
+| `latest`    | `1234567890.123456`   | Optional, default=now | End of time range of messages to include in results         |
+| `oldest`    | `1234567890.123456`   | Optional, default=0   | Start of time range of messages to include in results       |
 | `inclusive` | `1`                   | Optional, default=0   | Include messages with latest or oldest timestamp in results |
-| `count`     | `100`                 | Optional, default=100 | Number of messages to return, between 1 and 1000 |
+| `count`     | `100`                 | Optional, default=100 | Number of messages to return, between 1 and 1000            |
 
 #### Example:
 
@@ -236,9 +236,337 @@ This table lists the expected errors that this method will return. However, othe
 ===
 
 ## channels.info - Gets information about a channel
+
+#### Arguments:
+
+| Argument | Example | Required | Description |
+| -------- | ------- | -------- | ----------- |
+| `token`   | `xxxx-xxxxxxxxx-xxxx` | Required | Authentication token (Requires scope: `read`) |
+| `channel` | `C1234567890`         | Required | Channel to get info on                        |
+
+#### Example:
+
+CoffeeScript
+
+```coffeescript
+slack.api.channels.info
+  token: 'xxxx-xxxxxxxxx-xxxx'
+  channel: 'C1234567890'
+, (err, res) ->
+  throw err if err
+  console.log res
+```
+
+JavaScript
+
+```javascript
+slack.api.channels.info({
+  token: 'xxxx-xxxxxxxxx-xxxx',
+  channel: 'C1234567890'
+}, function (err, res) {
+  if (err) { throw err; }
+  console.log(res);
+});
+```
+
+#### Response:
+
+```json
+{
+  "ok": true,
+  "channel": {
+    "id": "C1234567890",
+    "name": "fun",
+
+    "created": 1360782804,
+    "creator": "U024BE7LH",
+
+    "is_archived": false,
+    "is_general": false,
+    "is_member": true,
+
+    "members": [ … ],
+
+    "topic": { … },
+    "purpose": { … },
+
+    "last_read": "1401383885.000061",
+    "latest": { … },
+    "unread_count": 0,
+    "unread_count_display": 0
+  }
+}
+
+```
+
+Returns a [channel object](https://api.slack.com/types/channel)
+
+### Errors:
+
+This table lists the expected errors that this method will return. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the `ok` params in the response.
+
+| Error | Description |
+| ----- | ----------- |
+| `channel_not_found` | Value passed for `channel` was invalid.             |
+| `not_authed`        | No authentication token provided.                   |
+| `invalid_auth`      | Invalid authentication token.                       |
+| `account_inactive`  | Authentication token is for a deleted user or team. |
+
+===
+
 ## channels.invite - Invites a user to a channel
+
+#### Arguments:
+
+| Argument | Example | Required | Description |
+| -------- | ------- | -------- | ----------- |
+| `token`   | `xxxx-xxxxxxxxx-xxxx` | Required | Authentication token (Requires scope: `read`) |
+| `channel` | `C1234567890`         | Required | Channel to get info on                        |
+| `user`    | `U1234567890`         | Required | User to invite to channel                     |
+
+#### Example:
+
+CoffeeScript
+
+```coffeescript
+slack.api.channels.invite
+  token: 'xxxx-xxxxxxxxx-xxxx'
+  channel: 'C1234567890'
+  user: 'U1234567890'
+, (err, res) ->
+  throw err if err
+  console.log res
+```
+
+JavaScript
+
+```javascript
+slack.api.channels.invite({
+  token: 'xxxx-xxxxxxxxx-xxxx',
+  channel: 'C1234567890'.
+  user: 'U1234567890'
+}, function (err, res) {
+  if (err) { throw err; }
+  console.log(res);
+});
+```
+
+#### Response:
+
+```json
+{
+  "ok": true,
+  "channel": {
+    "id": "C1234567890",
+    "name": "fun",
+
+    "created": 1360782804,
+    "creator": "U024BE7LH",
+
+    "is_archived": false,
+    "is_general": false,
+    "is_member": true,
+
+    "members": [ … ],
+
+    "topic": { … },
+    "purpose": { … },
+
+    "last_read": "1401383885.000061",
+    "latest": { … },
+    "unread_count": 0,
+    "unread_count_display": 0
+  }
+}
+
+```
+
+### Errors:
+
+This table lists the expected errors that this method will return. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the `ok` params in the response.
+
+| Error | Description |
+| ----- | ----------- |
+| `channel_not_found`        | Value passed for `channel` was invalid.                                      |
+| `user_not_found`           | Value passed for `user` was invalid.                                         |
+| `cant_invite_self`         | Authenticated user cannot invite themselves to a channel.                    |
+| `not_in_channel`           | Authenticated user is not in the channel.                                    |
+| `already_in_channel`       | Invited user is already in the channel.                                      |
+| `is_archived`              | Channel has been archived.                                                   |
+| `cant_invite`              | User cannot be invited to this cannel.                                       |
+| `not_authed`               | No authentication token provided.                                            |
+| `invalid_auth`             | Invalid authentication token.                                                |
+| `account_inactive`         | Authentication token is for a deleted user or team.                          |
+| `user_is_bot`              | This method cannot be called by a bot user.                                  |
+| `user_is_ultra_restricted` | This method cannot be called by a restricted user or single channel guest.   |
+
+===
+
 ## channels.join - Joins a channel, creating it if needed
+
+#### Arguments:
+
+| Argument | Example | Required | Description |
+| -------- | ------- | -------- | ----------- |
+| `token` | `xxxx-xxxxxxxxx-xxxx` | Required | Authentication token (Requires scope: `post`) |
+| `name`  | `mychannel`           | Required | Name of channel to join                       |
+
+#### Example:
+
+CoffeeScript
+
+```coffeescript
+slack.api.channels.join
+  token: 'xxxx-xxxxxxxxx-xxxx'
+  name: 'mychannel'
+, (err, res) ->
+  throw err if err
+  console.log res
+```
+
+JavaScript
+
+```javascript
+slack.api.channels.join({
+  token: 'xxxx-xxxxxxxxx-xxxx',
+  name: 'mychannel'
+}, function (err, res) {
+  if (err) { throw err; }
+  console.log(res);
+});
+```
+
+#### Response:
+
+If successful, the command returns a [channel object](https://api.slack.com/types/channel), including state information:
+
+```json
+{
+  "ok": true,
+  "channel": {
+    "id": "C024BE91L",
+    "name": "mychannel",
+    "created": 1360782804,
+    "creator": "U024BE7LH",
+    "is_archived": false,
+    "is_member": true,
+    "is_general": false,
+    "last_read": "0000000000.000000",
+    "latest": null,
+    "unread_count": 0,
+    "unread_count_display": 0,
+    "members": [ … ],
+    "topic": { … },
+    "purpose": { … }
+  }
+}
+
+```
+
+If you are already in the channel, the response is slightly different. `already_in_channel` will be true, and a limited `channel` object will be returned. This allows a client to see that the request to join `GeNERaL` is the same as the channel `#general` that the user is already in:
+
+```json
+{
+  "ok": true,
+  "already_in_channel": true,
+  "channel": {
+    "id": "C024BE91L",
+    "name": "fun",
+    "created": 1360782804,
+    "creator": "U024BE7LH",
+    "is_archived": false,
+    "is_general": false
+  }
+}
+
+```
+
+### Errors:
+
+This table lists the expected errors that this method will return. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the `ok` params in the response.
+
+| Error | Description |
+| ----- | ----------- |
+| `channel_not_found` | Value passed for `channel` was invalid. |
+| `name_taken`         | A channel cannot be created with the given name.                           |
+| `restricted_action`  | A team preference prevents the authenticated user from creating channels.  |
+| `no_channel`         | Value passed for `name` was empty.                                         |
+| `not_authed`         | No authentication token provided.                                          |
+| `invalid_auth`       | Invalid authentication token.                                              |
+| `account_inactive`   | Authentication token is for a deleted user or team.                        |
+| `user_is_bot`        | This method cannot be called by a bot user.                                |
+| `user_is_restricted` | This method cannot be called by a restricted user or single channel guest. |
+
+===
+
 ## channels.kick - Removes a user from a channel
+
+#### Arguments:
+
+| Argument | Example | Required | Description |
+| -------- | ------- | -------- | ----------- |
+| `token`   | `xxxx-xxxxxxxxx-xxxx` | Required | Authentication token (Requires scope: `post`) |
+| `channel` | `C1234567890`         | Required | Channel to remove user from                   |
+| `user`    | `U1234567890`         | Required | User to remove from channel                   |
+
+#### Example:
+
+CoffeeScript
+
+```coffeescript
+slack.api.channels.kick
+  token: 'xxxx-xxxxxxxxx-xxxx'
+  channel: 'C1234567890'
+  user: 'U1234567890'
+, (err, res) ->
+  throw err if err
+  console.log res
+```
+
+JavaScript
+
+```javascript
+slack.api.channels.kick({
+  token: 'xxxx-xxxxxxxxx-xxxx',
+  channel: 'C1234567890'.
+  user: 'U1234567890'
+}, function (err, res) {
+  if (err) { throw err; }
+  console.log(res);
+});
+```
+
+#### Response:
+
+```json
+{
+  "ok": true
+}
+
+```
+
+### Errors:
+
+This table lists the expected errors that this method will return. However, other errors can be returned in the case where the service is down or other unexpected factors affect processing. Callers should always check the value of the `ok` params in the response.
+
+| Error | Description |
+| ----- | ----------- |
+| `channel_not_found`           | Value passed for `channel` was invalid.                                    |
+| `user_not_found`              | Value passed for `user` was invalid.                                       |
+| `cant_kick_self`              | Authenticated user cannot kick themselves from a channel.                  |
+| `not_in_channel`              | User was not in the channel.                                               |
+| `cant_kick_from_general`      | User cannot be removed from #general.                                      |
+| `cant_kick_from_last_channel` | User cannot be removed from the last channel they're in.                   |
+| `restricted_action`           | A team preference prevents the authenticated user from kicking.            |
+| `cant_invite`                 | User cannot be invited to this cannel.                                     |
+| `not_authed`                  | No authentication token provided.                                          |
+| `invalid_auth`                | Invalid authentication token.                                              |
+| `account_inactive`            | Authentication token is for a deleted user or team.                        |
+| `user_is_bot`                 | This method cannot be called by a bot user.                                |
+| `user_is_ultra_restricted`    | This method cannot be called by a restricted user or single channel guest. |
+
+===
+
 ## channels.leave - Leaves a channel
 ## channels.list - Lists all channels in a Slack team
 ## channels.mark - Sets the read cursor in a channel
