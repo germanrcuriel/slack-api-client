@@ -20,8 +20,9 @@ class Users extends BaseClass
     @validate.obj opts, [ 'user' ]
     @request 'GET', @endpoints.info, opts, callback
 
-  list: (callback) ->
-    @request 'GET', @endpoints.list, {}, callback
+  list: (opts = {}, callback) ->
+    @validate.obj opts, [ 'user' ]
+    @request 'GET', @endpoints.list, opts, callback
 
   setActive: (callback) ->
     @request 'POST', @endpoints.setActive, {}, callback
