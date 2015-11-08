@@ -1,3 +1,7 @@
+## 0.0.3 (2015-11-08)
+
+  - Allow presence option in `users.list` method
+
 ## 0.0.2 (2015-03-31)
 
   - Fix github's repo url on package.json
