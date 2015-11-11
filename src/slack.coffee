@@ -12,6 +12,7 @@ class Slack
       'emoji': require './api/emoji'
       'groups': require './api/groups'
       'im': require './api/im'
+      'mpim': require './api/mpim'
       'oauth': require './api/oauth'
       'rtm': require './api/rtm'
       'search': require './api/search'
