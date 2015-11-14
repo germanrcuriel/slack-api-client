@@ -1,3 +1,7 @@
+## 0.0.4 (2015-11-14)
+
+  - Added support for Multi Party Instant Messaging
+
 ## 0.0.3 (2015-11-08)
 
   - Allow presence option in `users.list` method
