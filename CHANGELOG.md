@@ -1,3 +1,7 @@
+## 0.0.5 (2015-11-16)
+
+  - Fix a typo in `users.list` method
+
 ## 0.0.4 (2015-11-14)
 
   - Added support for Multi Party Instant Messaging
