@@ -7,7 +7,7 @@ class IM extends BaseClass
     history: '/api/im.history'
     list: '/api/im.list'
     mark: '/api/im.mark'
-    open: '/api/im.post'
+    open: '/api/im.open'
 
   #
   # Official API Methods
