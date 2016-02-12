@@ -9,6 +9,7 @@ class Slack
       'auth': require './api/auth'
       'channels': require './api/channels'
       'chat': require './api/chat'
+      'dnd': require './api/dnd'
       'emoji': require './api/emoji'
       'groups': require './api/groups'
       'im': require './api/im'
