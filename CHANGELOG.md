@@ -1,3 +1,7 @@
+## 0.1.0 (2016-02-12)
+
+  - Added DND resource
+
 ## 0.0.5 (2015-11-16)
 
   - Fix a typo in `users.list` method
