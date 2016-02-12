@@ -1,7 +1,7 @@
 {
   "name": "slack-api-client",
   "description": "A Slack API Client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "main": "./lib/slack.js",
   "dependencies": {

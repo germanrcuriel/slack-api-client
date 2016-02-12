@@ -1,10 +1,14 @@
+## 0.1.1 (2016-02-12)
+
+  - Fixed a typo in `im.open` method
+
 ## 0.1.0 (2016-02-12)
 
   - Added DND resource
 
 ## 0.0.5 (2015-11-16)
 
-  - Fix a typo in `users.list` method
+  - Fixed a typo in `users.list` method
 
 ## 0.0.4 (2015-11-14)
 
@@ -16,7 +20,7 @@
 
 ## 0.0.2 (2015-03-31)
 
-  - Fix github's repo url on package.json
+  - Fixed github's repo url on package.json
   - Added documentation for `api` resource
 
 ## 0.0.1 (2015-03-30)
