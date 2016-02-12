@@ -29,6 +29,9 @@ describe 'Slack', ->
   it 'adds chat to the api object', ->
     @slack.api.should.have.property 'chat'
 
+  it 'adds dnd to the api object', ->
+    @slack.api.should.have.property 'dnd'
+
   it 'adds emoji to the api object', ->
     @slack.api.should.have.property 'emoji'
 
