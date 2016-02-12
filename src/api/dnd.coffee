@@ -19,15 +19,13 @@ class Dnd extends BaseClass
     @request 'POST', @endpoints.endSnooze, opts, callback
 
   info: (opts = {}, callback) ->
-    @validate.obj opts, [ 'user' ]
     @request 'POST', @endpoints.info, opts, callback
 
   setSnooze: (opts = {}, callback) ->
-    @validate.obj opts, [ 'number' ]
+    @validate.obj opts, [ 'num_minutes' ]
     @request 'POST', @endpoints.setSnooze, opts, callback
 
   teamInfo: (opts = {}, callback) ->
-    @validate.obj opts, [ 'users' ]
     @request 'POST', @endpoints.teamInfo, opts, callback
 
 module.exports = Dnd
