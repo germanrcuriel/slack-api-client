@@ -1,9 +1,9 @@
 class Slack
 
-  host: 'https://api.slack.com'
-  api: []
-
   constructor: (@apiKey) ->
+    @host = 'https://api.slack.com'
+    @api = []
+
     @addResources
       'api': require './api/api'
       'auth': require './api/auth'

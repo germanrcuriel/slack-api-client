@@ -19,6 +19,12 @@ describe 'BaseClass', =>
   it 'receives the slack instance as parameter', =>
     @baseClass.slack.should.be.exactly @slack
 
+  it 'has the apiKey setted in the instance', =>
+    anotherInstance = new Slack 'anothertoken'
+
+    @slack.api.api.slack.apiKey.should.be.exactly @slack.apiKey
+    anotherInstance.api.api.slack.apiKey.should.be.exactly anotherInstance.apiKey
+
   describe '#throwError', =>
 
     it 'throws an error', =>
