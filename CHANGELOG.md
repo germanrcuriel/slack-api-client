@@ -1,3 +1,7 @@
+## 0.1.2 (2016-05-25)
+
+  - Fixed `apiKey` instance variable
+
 ## 0.1.1 (2016-02-12)
 
   - Fixed a typo in `im.open` method
